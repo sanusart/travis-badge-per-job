@@ -3,6 +3,11 @@ require("isomorphic-fetch");
 const path = require("path");
 const PORT = process.env.PORT || 5000;
 
+express().use(function(req, res, next) {
+  res.setHeader('Content-Type', 'image/svg+xml');
+  next();
+});
+
 express()
   .use(express.static(path.join(__dirname, "public")))
   .get("/", (request, responce) => {
@@ -26,11 +31,11 @@ express()
           .then(res => res.json())
           .then(travis => {
             if (travis.matrix[jobNumber].result === 0) {
-              return responce.send(shieldIo(colorSuccess, "success"));
+              return responce.redirect(shieldIo(colorSuccess, "success"));
             } else if (travis.matrix[jobNumber].result === 1) {
-              return responce.send(shieldIo(colorFailure, "fail"));
+              return responce.redirect(shieldIo(colorFailure, "fail"));
             } else {
-              return responce.send(shieldIo(colorFailure, "unknown"));
+              return responce.redirect(shieldIo(colorFailure, "unknown"));
             }
           });
       });
