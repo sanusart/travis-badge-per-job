@@ -30,13 +30,17 @@ express()
         fetch(`https://api.travis-ci.org/builds/${build.id}`)
           .then((res) => res.json())
           .then((travis) => {
-            if(jobNumber > travis.matrix.length) {
+            if(!jobNumber) {
+              return responce.redirect(shieldIo(colorFailure, "job number missing"));
+            }
+
+            if((jobNumber - 1) > travis.matrix.length) {
               return responce.redirect(shieldIo(colorFailure, "job not found"));
             }
 
-            if (travis.matrix[jobNumber].result === 0) {
+            if (travis.matrix[jobNumber - 1].result === 0) {
               return responce.redirect(shieldIo(colorSuccess, "success"));
-            } else if (travis.matrix[jobNumber].result === 1) {
+            } else if (travis.matrix[jobNumber - 1].result === 1) {
               return responce.redirect(shieldIo(colorFailure, "fail"));
             } else {
               return responce.redirect(shieldIo(colorFailure, "unknown"));
