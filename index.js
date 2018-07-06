@@ -26,11 +26,11 @@ express()
           .then(res => res.json())
           .then(travis => {
             if (travis.matrix[jobNumber].result === 0) {
-              return responce.send(encodeURI(shieldIo(colorSuccess, "success"));
+              return responce.send(encodeURI(shieldIo(colorSuccess, "success")));
             } else if (travis.matrix[jobNumber].result === 1) {
-              return responce.send(shieldIo(colorFailure, "fail"));
+              return responce.send(encodeURI(shieldIo(colorFailure, "fail")));
             } else {
-              return responce.send(shieldIo(colorFailure, "unknown"));
+              return responce.send(encodeURI(shieldIo(colorFailure, "unknown")));
             }
           });
       });
