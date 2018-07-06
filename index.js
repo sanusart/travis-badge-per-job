@@ -26,13 +26,11 @@ express()
           .then(res => res.json())
           .then(travis => {
             if (travis.matrix[jobNumber].result === 0) {
-              let buff = new Buffer(encodeURI(shieldIo(colorSuccess, "success")));  
-              let base64data = buff.toString('base64');
-              return responce.send(base64data);
+              return responce.send(shieldIo(colorSuccess, "success"));
             } else if (travis.matrix[jobNumber].result === 1) {
-              return responce.send(encodeURI(shieldIo(colorFailure, "fail")));
+              return responce.send(shieldIo(colorFailure, "fail"));
             } else {
-              return responce.send(encodeURI(shieldIo(colorFailure, "unknown")));
+              return responce.send(shieldIo(colorFailure, "unknown"));
             }
           });
       });
