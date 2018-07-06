@@ -14,5 +14,8 @@
   "license": "MIT",
   "engines": {
     "node": "10.1.0"
+  },
+  "dependencies": {
+    "hapi": "^17.5.2"
   }
 }
