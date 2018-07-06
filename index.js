@@ -19,14 +19,14 @@ express()
       `https://img.shields.io/badge/${label}-${content ||
         outcome}-${color}.svg?longCache=true&style=${style}&label=${label}`;
 
-    fetch("https://api.travis-ci.org/repos/" + repo)
+    fetch(`https://api.travis-ci.org/repos/${repo}`)
       .then(res => res.json())
       .then(build => {
-        fetch("https://api.travis-ci.org/builds/" + build.id)
+        fetch(`https://api.travis-ci.org/builds/${build.id}`)
           .then(res => res.json())
           .then(travis => {
             if (travis.matrix[jobNumber].result === 0) {
-              return responce.send(shieldIo(colorSuccess, "success"));
+              return responce.send(encodeURI(shieldIo(colorSuccess, "success"));
             } else if (travis.matrix[jobNumber].result === 1) {
               return responce.send(shieldIo(colorFailure, "fail"));
             } else {
