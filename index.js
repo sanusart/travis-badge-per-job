@@ -34,8 +34,8 @@ express()
               return responce.redirect(shieldIo(colorFailure, "job number missing"));
             }
 
-            if((jobNumber - 1) > travis.matrix.length) {
-              return responce.redirect(shieldIo(colorFailure, "job not found"));
+            if((jobNumber) > travis.matrix.length) {
+              return responce.redirect(shieldIo(colorFailure, `job "${jobNumber}" not found`));
             }
 
             if (travis.matrix[jobNumber - 1].result === 0) {
