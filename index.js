@@ -1,7 +1,7 @@
-"use strict";
+// "use strict";
 
 const Hapi = require("hapi");
-require('isomorphic-fetch');
+// require('isomorphic-fetch');
 
 
 // Create a server with a host and port
@@ -44,16 +44,7 @@ return 'https://img.shields.io/badge/hi-poopoo-red.svg?longCache=true&style=flat
   }
 });
 
-// Start the server
-async function start() {
-  try {
-    await server.start();
-  } catch (err) {
-    console.log(err);
-    process.exit(1);
-  }
+server.start(function () {
 
-  console.log("Server running at:", server.info.uri);
-}
-
-start();
+  console.log('Server started at [' + server.info.uri + ']');
+});
