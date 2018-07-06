@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 5000;
 
 express()
   .use(express.static(path.join(__dirname, "public")))
-  .get("/", (req, res) => res.send("'https://img.shields.io/badge/hi-poopoo-red.svg?longCache=true&style=flat-square&label=build'"))
+  .get("/", (req, res) => res.send('https://img.shields.io/badge/hi-poopoo-red.svg?longCache=true&style=flat-square&label=build'))
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 
