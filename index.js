@@ -25,11 +25,15 @@ express()
         outcome}-${color}.svg?longCache=true&style=${style}&label=${label}`;
 
     fetch(`https://api.travis-ci.org/repos/${repo}`)
-      .then(res => res.json())
-      .then(build => {
+      .then((res) => res.json())
+      .then((build) => {
         fetch(`https://api.travis-ci.org/builds/${build.id}`)
-          .then(res => res.json())
-          .then(travis => {
+          .then((res) => res.json())
+          .then((travis) => {
+            if(jobNumber > travis.matrix.length) {
+              return responce.redirect(shieldIo(colorFailure, "job not found"));
+            }
+
             if (travis.matrix[jobNumber].result === 0) {
               return responce.redirect(shieldIo(colorSuccess, "success"));
             } else if (travis.matrix[jobNumber].result === 1) {
