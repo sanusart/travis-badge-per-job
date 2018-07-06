@@ -41,8 +41,8 @@ return 'https://img.shields.io/badge/hi-poopoo-red.svg?longCache=true&style=flat
 //     }
 //   });
 // });
-//   }
-// });
+  }
+});
 
 // Start the server
 async function start() {
