@@ -13,7 +13,7 @@
   "author": "Sasha Khamkov <sanusart@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": "10.1.0"
+    "node": "8"
   },
   "dependencies": {
     "es6-promise": "^4.2.4",
