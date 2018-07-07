@@ -34,9 +34,9 @@ express()
             }
 
             if (travis.matrix[jobNumber - 1].result === 0) {
-              return responce.redirect(shieldIo(colorSuccess, "success"));
+              return responce.redirect(shieldIo(colorSuccess, "passing"));
             } else if (travis.matrix[jobNumber - 1].result === 1) {
-              return responce.redirect(shieldIo(colorFailure, "fail"));
+              return responce.redirect(shieldIo(colorFailure, "failing"));
             } else {
               return responce.redirect(shieldIo(colorFailure, "unknown"));
             }
