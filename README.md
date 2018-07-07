@@ -4,7 +4,7 @@
 
 ## Usage 
 
-Example of travice-ci a build matrix configured for 2 builds:
+Example of travis-ci a build matrix configured for 2 builds:
 
 ```
 ...
