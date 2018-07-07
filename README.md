@@ -39,7 +39,7 @@ matrix:
 
 ---
 
-Deploy to your own heroky if you wish:
+Deploy to your own heroku if you wish:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
