@@ -1,0 +1,6 @@
+{
+    "name": "travis-ci badge per job",
+    "description": "Travis-ci status badge per job in a matrix",
+    "repository": "https://github.com/sanusart/travis-badge-per-job",
+    "keywords": ["badge", "travis-ci"]
+}

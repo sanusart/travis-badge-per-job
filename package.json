@@ -1,7 +1,7 @@
 {
   "name": "travis-badge-per-job",
   "version": "1.0.0",
-  "description": "Travis status badge per job in matrix",
+  "description": "Travis-ci status badge per job in a matrix",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

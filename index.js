@@ -1,12 +1,7 @@
 const express = require("express");
 require("isomorphic-fetch");
 const path = require("path");
-const PORT = process.env.PORT || 5000;
-
-express().use(function(req, res, next) {
-  res.setHeader('Content-Type', 'image/svg+xml');
-  next();
-});
+const PORT = process.env.PORT || 8080;
 
 express()
   .use(express.static(path.join(__dirname, "public")))
