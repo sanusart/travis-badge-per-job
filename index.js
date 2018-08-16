@@ -20,7 +20,7 @@ express()
     fetch(`https://api.travis-ci.org/repos/${repo}`)
       .then((res) => res.json())
       .then((build) => {
-        fetch(`https://api.travis-ci.org/builds/${build.id}`)
+        fetch(`https://api.travis-ci.org/builds/${build.last_build_id}`)
           .then((res) => res.json())
           .then((travis) => {
             if(!jobNumber) {
