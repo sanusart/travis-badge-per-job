@@ -15,7 +15,7 @@ express()
 
     const shieldIo = (color, outcome) =>
       `https://img.shields.io/badge/${label}-${content ||
-        outcome}-${color}.svg?longCache=true&style=${style}&label=${label}`;
+        outcome}-${color}.svg?longCache=false&style=${style}&label=${label}`;
 
     fetch(`https://api.travis-ci.org/repos/${repo}`)
       .then((res) => res.json())
